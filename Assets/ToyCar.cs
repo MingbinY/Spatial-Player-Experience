@@ -7,6 +7,7 @@ public class ToyCar : MonoBehaviour
     public Vector3 targetPos;
     public float moveSpeed;
     bool move = false;
+    public AudioClip moveSound;
 
     private void Update()
     {
@@ -16,6 +17,8 @@ public class ToyCar : MonoBehaviour
     public void TriggerMove()
     {
         move = true;
+
+        GetComponent<AudioSource>().PlayOneShot(moveSound);
     }
 
     public void Move()
@@ -28,6 +31,7 @@ public class ToyCar : MonoBehaviour
         {
             move = false; // Stop moving once reached
         }
+
     }
 
 }

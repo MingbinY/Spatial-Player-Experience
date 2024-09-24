@@ -7,6 +7,10 @@ public class Trigger_Door : MonoBehaviour
     bool triggered = false;
     public List<GameObject> objectsToShow;
     public GameObject lightToTurnOff;
+
+    public AudioClip doorShakeClip;
+    public AudioSource doorSource;
+
     private void OnTriggerEnter(Collider other)
     {
         if (triggered) return;
@@ -26,6 +30,7 @@ public class Trigger_Door : MonoBehaviour
 
             lightToTurnOff.SetActive(false);
             FindObjectOfType<CeilingLightFlash>().isFlashing = true;
+            doorSource.PlayOneShot(doorShakeClip);
         }
     }
 }

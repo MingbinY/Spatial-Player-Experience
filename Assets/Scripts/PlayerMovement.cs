@@ -13,16 +13,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Vector3 moveDir = Vector3.zero;
     public bool isRunning = false;
     public float gravity = -9.8f;
+    AudioSource audioSource;
+    public AudioClip footstep;
 
     private void Start()
     {
         playerManager = GetComponent<PlayerManager>();
         characterController = playerManager.characterController;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = footstep;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
     private void Update()
     {
-
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
@@ -30,5 +35,7 @@ public class PlayerMovement : MonoBehaviour
         move.y = characterController.isGrounded ? gravity : move.y;
         isRunning = Input.GetKey(KeyCode.LeftShift) ? true : false;
         characterController.Move(move * (isRunning ? runSpeed : moveSpeed) * Time.deltaTime);
+        
+        audioSource.mute = x <= 0 && y <= 0;
     }
 }
