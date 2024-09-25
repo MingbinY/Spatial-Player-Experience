@@ -38,6 +38,7 @@ public class Trigger_Door : MonoBehaviour
     IEnumerator PlaySFX()
     {
         yield return new WaitForSeconds(doorShakeClip.length);
+        FindObjectOfType<PlayerSFX>().PlaySFX(2);
         FindObjectOfType<WaterDropSFX>().PlayWaterDrop();
     }
 }

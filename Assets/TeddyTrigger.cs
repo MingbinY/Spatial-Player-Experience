@@ -13,6 +13,13 @@ public class TeddyTrigger : MonoBehaviour
         {
             GetComponent<AudioSource>().Play();
             triggered = true;
+            StartCoroutine(PlayScreamSFX());
         }
+    }
+
+    IEnumerator PlayScreamSFX()
+    {
+        yield return new WaitForSeconds(3f);
+        FindObjectOfType<PlayerSFX>().PlaySFX(3);
     }
 }
