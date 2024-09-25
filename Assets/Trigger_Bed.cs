@@ -40,5 +40,7 @@ public class Trigger_Bed : MonoBehaviour
         FindObjectOfType<ClosetDoor>().OpenDoor();
         bearTrigger.SetActive(true);
         bloodBed.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        FindObjectOfType<WindSFX>().PlayWindSound();
     }
 }

@@ -31,6 +31,13 @@ public class Trigger_Door : MonoBehaviour
             lightToTurnOff.SetActive(false);
             FindObjectOfType<CeilingLightFlash>().isFlashing = true;
             doorSource.PlayOneShot(doorShakeClip);
+            StartCoroutine(PlaySFX());
         }
+    }
+
+    IEnumerator PlaySFX()
+    {
+        yield return new WaitForSeconds(doorShakeClip.length);
+        FindObjectOfType<WaterDropSFX>().PlayWaterDrop();
     }
 }
