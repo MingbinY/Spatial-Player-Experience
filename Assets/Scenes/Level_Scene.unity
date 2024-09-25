@@ -15001,10 +15001,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459e589304a6d9e45b7bc6179c07092f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  momClip: {fileID: 0}
-  doorClip: {fileID: 0}
-  scream: {fileID: 0}
-  audioSource: {fileID: 0}
+  momClip: {fileID: 8300000, guid: 173f1e22147729847810d13bc57b9b47, type: 3}
+  doorClip: {fileID: 8300000, guid: 9f6b41b952e9d744b86e4d3f298a94e1, type: 3}
+  scream: {fileID: 8300000, guid: d2b7970c51819db4f9713267b4dc5ec7, type: 3}
+  audioSource: {fileID: 705471103}
 --- !u!1 &1815865971
 GameObject:
   m_ObjectHideFlags: 0
